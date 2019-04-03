@@ -10,9 +10,9 @@ async function run() {
     printVehiclesNames(vehicles)
 }
 
-function getSkywalkerDetails(then) {
+function getSkywalkerDetails() {
     return request({
-            uri: `${INITIAL_URL}`,
+            uri: INITIAL_URL,
             json: true
         }
     )

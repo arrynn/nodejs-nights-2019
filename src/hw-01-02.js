@@ -10,9 +10,9 @@ function run() {
         .then(vehiclesDetails => printVehiclesNames(vehiclesDetails));
 }
 
-function getSkywalkerDetails(then) {
+function getSkywalkerDetails() {
     return request({
-            uri: `${INITIAL_URL}`,
+            uri: INITIAL_URL,
             json: true
         }
     )

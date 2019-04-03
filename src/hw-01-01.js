@@ -27,7 +27,7 @@ function handleResult(err, data, callback) {
 
 function getSkywalkerDetails(then) {
     request(
-        `${INITIAL_URL}`,
+        INITIAL_URL,
         (err, data) => handleResult(err, data, () => then(JSON.parse(data.body)))
     )
 }
