@@ -15,7 +15,6 @@ function run() {
 function handleResult(err, data, callback) {
     if (err) {
         util.objOut(`error`, err)
-        util.jsonOut()
         return
     }
 
