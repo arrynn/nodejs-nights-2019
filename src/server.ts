@@ -37,14 +37,15 @@ const initApp = () => {
 
     app.use(koaRouter.allowedMethods())
         .use(Body())
-        .use((ctx: any, next: () => void) => {
+        .use(async (ctx: any, next: () => void) => {
             logger.info({description:'Incoming request'}, {requestBody: ctx.request.body})
-            next()
+            await next()
         })
         .use(async (ctx: any, next: () => void) => {
             await next()
             logger.info({description:'Outgoing response'}, {responseBody: ctx.response.body})
-        }).use(koaRouter.routes())
+        })
+        .use(koaRouter.routes())
 
     logger.info(`Starting server listener on port ${SITE_PORT}`)
     app.listen(SITE_PORT)
